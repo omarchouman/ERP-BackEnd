@@ -19,7 +19,7 @@ class RoleSeeder extends Seeder
     public function run()
     {
         Role::factory()
-        ->has(Employee::factory()->count(15))
+        ->has(Employee::factory()->count(5))
         ->count(3)
         ->create();
     }

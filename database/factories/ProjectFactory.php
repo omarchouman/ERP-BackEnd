@@ -2,18 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Admin;
+use App\Models\Project;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
-class AdminFactory extends Factory
+class ProjectFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Admin::class;
+    protected $model = Project::class;
 
     /**
      * Define the model's default state.
@@ -24,9 +23,6 @@ class AdminFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
-            'image' => $this->faker->image('public/storage/images',640,480, null, false),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi',
         ];
     }
 }
