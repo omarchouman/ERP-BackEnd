@@ -19,8 +19,4 @@ class Employee extends Model
         return $this->belongsTo(Team::class);
     }
 
-    public function kpi()
-    {
-        return $this->hasMany(Kpi::class);
-    }
 }
