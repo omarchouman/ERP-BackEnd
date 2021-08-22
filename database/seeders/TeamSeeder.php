@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-use App\Models\Project;
+
 
 class TeamSeeder extends Seeder
 {
@@ -19,7 +19,6 @@ class TeamSeeder extends Seeder
     public function run()
     {
         Team::factory()
-        ->has(Project::factory()->count(4))
         ->count(3)
         ->create();
     }

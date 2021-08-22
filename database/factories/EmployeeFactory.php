@@ -27,7 +27,7 @@ class EmployeeFactory extends Factory
             'last_name' => $this->faker->name(),
             'email' => $this->faker->name(),
             'phone' => $this->faker->numerify('##########'),
-            'image' => $this->faker->image('public/storage/images',640,480, null, false),
+            'image' => $this->faker->name(),
             'team_id' => 1
         ];
     }

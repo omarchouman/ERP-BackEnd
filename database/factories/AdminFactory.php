@@ -25,7 +25,7 @@ class AdminFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
-            'image' => $this->faker->image('public/storage/images',640,480, null, false),
+            'image' => $this->faker->name(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi',
         ];
     }
