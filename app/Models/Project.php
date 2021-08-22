@@ -9,8 +9,8 @@ class Project extends Model
 {
     use HasFactory;
 
-    public function team() 
+    public function team()
     {
-        return $this->belongsToMany(Team::class);
+        return $this->belongsToMany(Team::class, 'project_team', 'project_id', 'team_id');
     }
 }
