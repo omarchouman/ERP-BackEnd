@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -13,7 +14,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        return Admin::all();
     }
 
 
@@ -21,11 +22,19 @@ class AdminController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
-        //
+        $inputs = $request->all();
+        $admin = new Admin();
+        $admin->fill($inputs);
+        $admin->save();
+
+        return response()->json([
+            'message' => 'Admin Created Successfully!',
+            'admin' => $admin
+        ]);
     }
 
     /**
@@ -36,7 +45,7 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+        return Admin::where('id', $id)->get();
     }
 
 
@@ -45,21 +54,32 @@ class AdminController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, $id)
     {
-        //
+        $inputs = $request->all();
+        $admin = Admin::where('id', $id)->get();
+        $admin->update($inputs);
+
+        return response()->json([
+            'message' => 'Admin Updated Successfully!',
+            'admin' => $admin
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {
-        //
+        Admin::where('id', $id)->delete();
+
+        return response()->json([
+           'message' => 'Admin Deleted Successfully!'
+        ]);
     }
 }

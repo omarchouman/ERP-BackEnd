@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kpi;
 use Illuminate\Http\Request;
 
 class KpiController extends Controller
@@ -13,7 +14,7 @@ class KpiController extends Controller
      */
     public function index()
     {
-        //
+        return Kpi::all();
     }
 
 
@@ -21,11 +22,19 @@ class KpiController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
-        //
+        $inputs = $request->all();
+        $kpi = new Kpi();
+        $kpi->fill($inputs);
+        $kpi->save();
+
+        return response()->json([
+           'message' => 'Kpi Created Successfully!',
+           'kpi' => $kpi
+        ]);
     }
 
     /**
@@ -36,7 +45,7 @@ class KpiController extends Controller
      */
     public function show($id)
     {
-        //
+        return Kpi::where('id', $id)->get();
     }
 
 
@@ -45,21 +54,32 @@ class KpiController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, $id)
     {
-        //
+        $inputs = $request->all();
+        $kpi = Kpi::where('id', $id)->get();
+        $kpi->update($inputs);
+
+        return response()->json([
+            'message' => 'Kpi Updated Successfully!',
+            'employeekpi' => $kpi
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {
-        //
+        Kpi::where('id', $id)->delete();
+
+        return response()->json([
+            'message' => 'Kpi Deleted Successfully!'
+        ]);
     }
 }

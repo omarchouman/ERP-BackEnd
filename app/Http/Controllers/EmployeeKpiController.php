@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EmployeeKpi;
 use Illuminate\Http\Request;
 
 class EmployeeKpiController extends Controller
@@ -13,7 +14,7 @@ class EmployeeKpiController extends Controller
      */
     public function index()
     {
-        //
+        return EmployeeKpi::all();
     }
 
 
@@ -21,13 +22,20 @@ class EmployeeKpiController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
-        //
-    }
+        $inputs = $request->all();
+        $employee_kpi = new EmployeeKpi();
+        $employee_kpi->fill($inputs);
+        $employee_kpi->save();
 
+        return response()->json([
+            'message' => 'Employee Kpi Created Successfully!',
+            'employee_kpi' => $employee_kpi
+        ]);
+    }
     /**
      * Display the specified resource.
      *
@@ -36,7 +44,7 @@ class EmployeeKpiController extends Controller
      */
     public function show($id)
     {
-        //
+        return EmployeeKpi::where('id', $id)->get();
     }
 
     /**
@@ -44,21 +52,32 @@ class EmployeeKpiController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, $id)
     {
-        //
+        $inputs = $request->all();
+        $employee_kpi = EmployeeKpi::where('id', $id)->get();
+        $employee_kpi->update($inputs);
+
+        return response()->json([
+            'message' => 'Employee Kpi Updated Successfully!',
+            'employee_kpi' => $employee_kpi
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {
-        //
+        EmployeeKpi::where('id', $id)->delete();
+
+        return response()->json([
+           'message' => 'Employee Kpi Deleted Successfully'
+        ]);
     }
 }
