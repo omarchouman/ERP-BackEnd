@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class EmployeeKpi extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['employee_id', 'kpi_id'];
 }

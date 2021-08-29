@@ -14,8 +14,10 @@ class CreateProjectTeamTable extends Migration
     public function up()
     {
         Schema::create('project_team', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('project_id')->constrained();
             $table->foreignId('team_id')->constrained();
+            $table->timestamps();
         });
     }
 

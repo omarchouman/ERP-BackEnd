@@ -14,9 +14,10 @@ class CreateEmployeeKpiTable extends Migration
     public function up()
     {
         Schema::create('employee_kpi', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('employee_id')->constrained();
             $table->foreignId('kpi_id')->constrained();
-            $table->string('level');
+            $table->timestamps();
         });
     }
 

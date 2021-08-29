@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             TeamSeeder::class,
             RoleSeeder::class,
             ProjectSeeder::class,
+            KpiSeeder::class,
         ]);
     }
 }

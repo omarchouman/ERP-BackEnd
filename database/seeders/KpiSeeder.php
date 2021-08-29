@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Project;
-use App\Models\Team;
+use App\Models\Kpi;
+use App\Models\Employee;
 use Illuminate\Database\Seeder;
 
-class ProjectSeeder extends Seeder
+class KpiSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,9 +15,9 @@ class ProjectSeeder extends Seeder
      */
     public function run()
     {
-        Project::factory()
-            ->has(Team::factory()->count(6))
-            ->count(5)
+        Kpi::factory()
+            ->has(Employee::factory()->count(4))
+            ->count(6)
             ->create();
     }
 }

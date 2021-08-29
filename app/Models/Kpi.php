@@ -9,8 +9,10 @@ class Kpi extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'level'];
+
     public function employee()
     {
-        return $this->belongsToMany(Employee::class);
+        return $this->belongsToMany(Employee::class, 'employee_kpi', 'kpi_id', 'employee_id');
     }
 }

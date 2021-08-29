@@ -9,4 +9,6 @@ class ProjectTeam extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['project_id', 'team_id'];
+
 }
