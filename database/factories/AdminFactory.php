@@ -23,10 +23,10 @@ class AdminFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
-            'image' => $this->faker->name(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi',
+            'name' => 'Omar Chouman',
+            'email' => 'omar.chouman0@gmail.com',
+            'image' => 'https://avatars.githubusercontent.com/u/72022461?v=4',
+            'password' => 'omar123',
         ];
     }
 }
