@@ -9,5 +9,7 @@ class EmployeeKpi extends Model
 {
     use HasFactory;
 
+    public $table = 'employee_kpi';
+
     protected $fillable = ['employee_id', 'kpi_id'];
 }
