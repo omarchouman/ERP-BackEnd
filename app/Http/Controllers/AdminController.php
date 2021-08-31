@@ -26,7 +26,19 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'image' => 'required|mimes:jpg,png,jpeg|max:5048',
+            'password' => 'required'
+        ]);
+
         $inputs = $request->all();
+
+        $newImageName = time() . '-' . $request->name . '.' . $request->image->extension();
+        $request->image->move(public_path('images'), $newImageName);
+        $inputs['image'] = "/images/" . $newImageName;
         $admin = new Admin();
         $admin->fill($inputs);
         $admin->save();

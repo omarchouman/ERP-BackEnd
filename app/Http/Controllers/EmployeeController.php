@@ -26,7 +26,19 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'image' => 'required|mimes:jpg,png,jpeg|max:5048'
+        ]);
+
         $inputs = $request->all();
+
+        $newImageName = time() . '-' . $request->first_name . '.' . $request->image->extension();
+        $request->image->move(public_path('images'), $newImageName);
+        $inputs['image'] = "/images/" . $newImageName;
         $employee = new Employee();
         $employee->fill($inputs);
         $employee->save();
