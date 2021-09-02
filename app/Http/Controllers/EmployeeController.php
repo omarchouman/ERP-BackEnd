@@ -14,7 +14,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return Employee::all();
+        return Employee::with('team', 'role')->get();
     }
 
 
@@ -57,7 +57,7 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        return Employee::where('id', $id)->get();
+        return Employee::with('team', 'role')->where('id', $id)->get();
     }
 
     /**

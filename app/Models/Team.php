@@ -10,10 +10,4 @@ class Team extends Model
     use HasFactory;
 
     protected $fillable = ['name'];
-
-//    public function project()
-//    {
-//        return $this->belongsToMany(Project::class);
-//    }
-
 }

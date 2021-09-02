@@ -14,7 +14,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return Role::all();
+        return Role::with('employees')->get();
     }
 
 
@@ -45,7 +45,7 @@ class RoleController extends Controller
      */
     public function show($id)
     {
-        return Role::where('id',$id)->get();
+        return Role::with('employees')->where('id',$id)->get();
     }
 
 

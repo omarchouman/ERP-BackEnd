@@ -14,7 +14,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return Project::all();
+        return Project::with('team')->get();
     }
 
 
@@ -45,7 +45,7 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        return Project::where('id', $id)->get();
+        return Project::with('team')->where('id', $id)->get();
     }
 
 

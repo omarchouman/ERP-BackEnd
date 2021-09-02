@@ -14,7 +14,7 @@ class KpiController extends Controller
      */
     public function index()
     {
-        return Kpi::all();
+        return Kpi::with('employee')->get();
     }
 
 
@@ -45,7 +45,7 @@ class KpiController extends Controller
      */
     public function show($id)
     {
-        return Kpi::where('id', $id)->get();
+        return Kpi::with('employee')->where('id', $id)->get();
     }
 
 
