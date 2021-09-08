@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\ProjectTeam;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -76,6 +77,24 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
+        $project = Project::where('id', $id)->first();
+
+        if($project) {
+            if(ProjectTeam::where('project_id', $id)->count() > 0) {
+                return response()->json([
+                    'message' => 'Cant delete project while teams assigned to it'
+                ]);
+            } else {
+                return response()->json([
+                    'message' => "Project deleted successfully"
+                ]);
+            };
+        } else {
+                return response()->json([
+                    'message' => "Unable to delete project"
+                ]);
+        }
+
         Project::where('id', $id)->delete();
 
         return response()->json([
