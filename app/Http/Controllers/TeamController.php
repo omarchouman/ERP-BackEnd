@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Team;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
 class TeamController extends Controller
@@ -76,6 +77,24 @@ class TeamController extends Controller
      */
     public function destroy($id)
     {
+        $team = Team::where('id', $id)->first();
+
+        if($team){
+            if(Employee::where('team_id', $id)->count()>0) {
+                return response()->json([
+                    'message' => 'Cant delete team while employees assigned to it'
+                ]);
+            } else {
+                return response()->json([
+                    'message' => 'Team deleted successfully'
+                ]);
+            }
+        } else {
+            return response()->json([
+                'message' => 'Unable to delete team'
+            ]);
+        }
+
         Team::where('id', $id)->delete();
 
         return response()->json([
