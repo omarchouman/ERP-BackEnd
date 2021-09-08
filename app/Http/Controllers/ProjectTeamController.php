@@ -14,7 +14,7 @@ class ProjectTeamController extends Controller
      */
     public function index()
     {
-        return ProjectTeam::all();
+        return ProjectTeam::paginate(10);
     }
 
     /**

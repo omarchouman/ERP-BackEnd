@@ -14,7 +14,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return Role::with('employees')->get();
+        return Role::with('employees')->paginate(10);
     }
 
 

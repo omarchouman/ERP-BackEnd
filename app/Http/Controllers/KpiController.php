@@ -14,7 +14,7 @@ class KpiController extends Controller
      */
     public function index()
     {
-        return Kpi::with('employee')->get();
+        return Kpi::with('employee')->paginate(10);
     }
 
 

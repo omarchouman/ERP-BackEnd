@@ -15,7 +15,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return Project::with('team')->get();
+        return Project::with('team')->paginate(10);
     }
 
 

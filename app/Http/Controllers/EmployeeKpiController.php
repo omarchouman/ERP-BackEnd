@@ -14,7 +14,7 @@ class EmployeeKpiController extends Controller
      */
     public function index()
     {
-        return EmployeeKpi::all();
+        return EmployeeKpi::paginate(10);
     }
 
 
