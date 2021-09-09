@@ -24,6 +24,7 @@ class KpiFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'level' => "56",
+            'date' => $this->faker->date(),
         ];
     }
 }

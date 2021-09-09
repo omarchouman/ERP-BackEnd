@@ -16,7 +16,8 @@ class CreateKpisTable extends Migration
         Schema::create('kpis', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->integer('level');
+            $table->integer("level");
+            $table->date("date");
             $table->timestamps();
         });
     }
