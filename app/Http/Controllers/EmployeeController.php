@@ -70,7 +70,7 @@ class EmployeeController extends Controller
     public function update(Request $request, $id)
     {
         $inputs = $request->all();
-        $employee = Employee::where('id', $id)->get();
+        $employee = Employee::where('id', $id)->first();
         $employee->update($inputs);
 
         return response()->json([

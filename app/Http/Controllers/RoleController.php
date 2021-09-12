@@ -59,7 +59,7 @@ class RoleController extends Controller
     public function update(Request $request, $id)
     {
         $inputs = $request->all();
-        $role = Role::where('id', $id)->get();
+        $role = Role::where('id', $id)->first();
         $role->update($inputs);
 
         return response()->json([

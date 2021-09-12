@@ -57,7 +57,7 @@ class EmployeeKpiController extends Controller
     public function update(Request $request, $id)
     {
         $inputs = $request->all();
-        $employee_kpi = EmployeeKpi::where('id', $id)->get();
+        $employee_kpi = EmployeeKpi::where('id', $id)->first();
         $employee_kpi->update($inputs);
 
         return response()->json([

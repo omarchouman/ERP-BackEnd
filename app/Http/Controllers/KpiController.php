@@ -26,6 +26,12 @@ class KpiController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'level' => 'integer|min:1|max:100',
+            'date' => 'required',
+        ]);
+
         $inputs = $request->all();
         $kpi = new Kpi();
         $kpi->fill($inputs);
@@ -58,8 +64,12 @@ class KpiController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'level' => 'integer|min:1|max:100',
+        ]);
+
         $inputs = $request->all();
-        $kpi = Kpi::where('id', $id)->get();
+        $kpi = Kpi::where('id', $id)->first();
         $kpi->update($inputs);
 
         return response()->json([

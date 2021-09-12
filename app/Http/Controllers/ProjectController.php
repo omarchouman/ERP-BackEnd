@@ -60,7 +60,7 @@ class ProjectController extends Controller
     public function update(Request $request, $id)
     {
         $inputs = $request->all();
-        $project = Project::where('id', $id)->get();
+        $project = Project::where('id', $id)->first();
         $project->update($inputs);
 
         return response()->json([

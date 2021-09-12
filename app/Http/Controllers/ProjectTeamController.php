@@ -58,7 +58,7 @@ class ProjectTeamController extends Controller
     public function update(Request $request, $id)
     {
         $inputs = $request->all();
-        $project_team = ProjectTeam::where('id', $id)->get();
+        $project_team = ProjectTeam::where('id', $id)->first();
         $project_team->update($inputs);
 
         return response()->json([

@@ -60,7 +60,7 @@ class TeamController extends Controller
     public function update(Request $request, $id)
     {
         $inputs = $request->all();
-        $team = Team::where('id', $id)->get();
+        $team = Team::where('id', $id)->first();
         $team->update($inputs);
 
         return response()->json([

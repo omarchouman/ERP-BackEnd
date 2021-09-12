@@ -71,7 +71,7 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         $inputs = $request->all();
-        $admin = Admin::where('id', $id)->get();
+        $admin = Admin::where('id', $id)->first();
         $admin->update($inputs);
 
         return response()->json([
