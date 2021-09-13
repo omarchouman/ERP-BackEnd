@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Kpi;
+use App\Models\EmployeeKpi;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class KpiFactory extends Factory
+class EmployeeKpiFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Kpi::class;
+    protected $model = EmployeeKpi::class;
 
     /**
      * Define the model's default state.
@@ -22,8 +22,9 @@ class KpiFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
-            'date' => $this->faker->date(),
+            'employee_id' => '1',
+            'kpi_id' => '1',
+            'level' => $this->faker->number()->min(1)->max(10),
         ];
     }
 }

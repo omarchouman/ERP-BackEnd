@@ -26,6 +26,11 @@ class EmployeeKpiController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'level' => 'integer|min:1|max:100',
+        ]);
+
         $inputs = $request->all();
         $employee_kpi = new EmployeeKpi();
         $employee_kpi->fill($inputs);
@@ -56,6 +61,11 @@ class EmployeeKpiController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $request->validate([
+            'level' => 'integer|min:1|max:100',
+        ]);
+
         $inputs = $request->all();
         $employee_kpi = EmployeeKpi::where('id', $id)->first();
         $employee_kpi->update($inputs);

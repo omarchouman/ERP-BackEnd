@@ -9,7 +9,7 @@ class Kpi extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'level', 'date'];
+    protected $fillable = ['name', 'date'];
 
     public function employee()
     {

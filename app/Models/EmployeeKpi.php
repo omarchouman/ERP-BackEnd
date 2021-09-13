@@ -11,5 +11,5 @@ class EmployeeKpi extends Model
 
     public $table = 'employee_kpi';
 
-    protected $fillable = ['employee_id', 'kpi_id'];
+    protected $fillable = ['employee_id', 'kpi_id', 'level'];
 }

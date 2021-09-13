@@ -17,6 +17,7 @@ class CreateEmployeeKpiTable extends Migration
             $table->id();
             $table->foreignId('employee_id')->constrained();
             $table->foreignId('kpi_id')->constrained();
+            $table->integer("level");
             $table->timestamps();
         });
     }
