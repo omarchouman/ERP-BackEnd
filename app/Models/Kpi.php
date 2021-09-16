@@ -13,6 +13,6 @@ class Kpi extends Model
 
     public function employee()
     {
-        return $this->belongsToMany(Employee::class, 'employee_kpi', 'kpi_id', 'employee_id');
+        return $this->belongsToMany(Employee::class, 'employee_kpi', 'kpi_id', 'employee_id')->withPivot(['level']);
     }
 }

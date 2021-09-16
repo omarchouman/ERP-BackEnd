@@ -24,7 +24,7 @@ class EmployeeKpiFactory extends Factory
         return [
             'employee_id' => '1',
             'kpi_id' => '1',
-            'level' => $this->faker->number()->min(1)->max(10),
+            'level' => '60',
         ];
     }
 }
