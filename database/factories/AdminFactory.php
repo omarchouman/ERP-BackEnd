@@ -25,7 +25,6 @@ class AdminFactory extends Factory
         return [
             'name' => 'Omar Chouman',
             'email' => 'omar.chouman0@gmail.com',
-            'image' => 'https://avatars.githubusercontent.com/u/72022461?v=4',
             'password' => bcrypt('omar123'),
         ];
     }

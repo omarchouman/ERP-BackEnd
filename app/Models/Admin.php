@@ -13,7 +13,7 @@ class Admin extends Authenticatable implements JWTSubject
     use HasFactory;
     use Notifiable;
 
-    protected $fillable = ['name', 'email', 'image', 'password'];
+    protected $fillable = ['name', 'email', 'password'];
 
     /**
    * The attributes that should be hidden for arrays.
