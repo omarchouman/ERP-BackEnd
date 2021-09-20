@@ -18,6 +18,10 @@ class TeamController extends Controller
         return Team::paginate(10);
     }
 
+    public function allTeams()
+    {
+        return Team::all();
+    }
 
     /**
      * Store a newly created resource in storage.

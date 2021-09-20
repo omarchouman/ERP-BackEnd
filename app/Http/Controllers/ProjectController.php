@@ -19,6 +19,10 @@ class ProjectController extends Controller
     }
 
 
+    public function allProjects() {
+        return Project::all();
+    }
+
     /**
      * Store a newly created resource in storage.
      *

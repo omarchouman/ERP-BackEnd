@@ -17,6 +17,10 @@ class RoleController extends Controller
         return Role::with('employees')->paginate(10);
     }
 
+    public function allRoles() {
+        return Role::all();
+    }
+
 
     /**
      * Store a newly created resource in storage.

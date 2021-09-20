@@ -18,6 +18,10 @@ class EmployeeController extends Controller
     }
 
 
+    public function allEmployees() {
+        return Employee::all();
+    }
+
     /**
      * Store a newly created resource in storage.
      *
